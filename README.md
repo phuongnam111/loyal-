@@ -1,6 +1,5 @@
-# LynkiD Loyalty Automation Framework
+# Loyalty Automation Framework
 
-> 🎯 API automation framework cho hệ thống loyalty LynkiD – VPBank ecosystem.
 > Bao gồm: Points, Vouchers, Tiers, QR Payment, Gift Cards, Partner Integrations.
 
 ## 📁 Cấu trúc dự án
