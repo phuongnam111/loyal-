@@ -1,0 +1,36 @@
+{
+  "common": {
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000,
+    "logLevel": "info",
+    "pagination": {
+      "defaultPage": 1,
+      "defaultPageSize": 20,
+      "maxPageSize": 100
+    }
+  },
+  "api": {
+    "version": "v1",
+    "contentType": "application/json",
+    "rateLimiting": {
+      "maxRequestsPerSecond": 10,
+      "burstSize": 20
+    }
+  },
+  "auth": {
+    "strategy": "bearer",
+    "tokenRefreshBuffer": 60000,
+    "loginEndpoint": "/api/v1/auth/login",
+    "refreshEndpoint": "/api/v1/auth/refresh"
+  },
+  "points": {
+    "maxEarnPerTransaction": 1000000,
+    "maxAnnualAccumulation": 50000000,
+    "pointToVndRate": 1
+  },
+  "tiers": {
+    "levels": ["standard", "prime", "diamond"],
+    "evaluationPeriod": "yearly"
+  }
+}

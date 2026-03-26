@@ -1,0 +1,68 @@
+stages:
+  - install
+  - smoke
+  - test
+  - report
+
+variables:
+  NODE_ENV: staging
+  TEST_ENV: staging
+
+# ─── Install dependencies ─────────────────────────────────────────
+install:
+  stage: install
+  image: node:18-alpine
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+
+# ─── Smoke Tests (run first, fast-fail) ───────────────────────────
+smoke-tests:
+  stage: smoke
+  image: node:18-alpine
+  dependencies:
+    - install
+  script:
+    - cp .env.example .env
+    - npm run test:smoke
+  artifacts:
+    when: always
+    paths:
+      - reports/
+    expire_in: 7 days
+  allow_failure: false
+
+# ─── API Functional Tests ─────────────────────────────────────────
+api-tests:
+  stage: test
+  image: node:18-alpine
+  dependencies:
+    - install
+  script:
+    - cp .env.example .env
+    - npm run test:api
+  artifacts:
+    when: always
+    paths:
+      - reports/
+    expire_in: 7 days
+
+# ─── Report Generation ────────────────────────────────────────────
+generate-report:
+  stage: report
+  image: node:18-alpine
+  dependencies:
+    - smoke-tests
+    - api-tests
+  script:
+    - echo "Reports available in artifacts"
+    - ls -la reports/ || true
+  artifacts:
+    when: always
+    paths:
+      - reports/
+    expire_in: 30 days
+  when: always

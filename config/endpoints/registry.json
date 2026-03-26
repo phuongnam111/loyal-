@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "endpoints": {
+    "points": {
+      "earn": "/api/v1/points/earn",
+      "redeem": "/api/v1/points/redeem",
+      "balance": "/api/v1/points/balance/{userId}",
+      "history": "/api/v1/points/history/{userId}",
+      "earnRules": "/api/v1/points/earn-rules",
+      "expiryInfo": "/api/v1/points/expiry/{userId}"
+    },
+    "vouchers": {
+      "catalog": "/api/v1/vouchers/catalog",
+      "detail": "/api/v1/vouchers/{voucherId}",
+      "claim": "/api/v1/vouchers/claim",
+      "use": "/api/v1/vouchers/use",
+      "userVouchers": "/api/v1/vouchers/user/{userId}",
+      "validate": "/api/v1/vouchers/validate"
+    },
+    "tiers": {
+      "list": "/api/v1/tiers",
+      "userTier": "/api/v1/tiers/user/{userId}",
+      "benefits": "/api/v1/tiers/{tierId}/benefits",
+      "upgrade": "/api/v1/tiers/upgrade",
+      "downgrade": "/api/v1/tiers/downgrade",
+      "progress": "/api/v1/tiers/user/{userId}/progress"
+    },
+    "qrPayment": {
+      "generate": "/api/v1/qr-payment/generate",
+      "verify": "/api/v1/qr-payment/verify",
+      "status": "/api/v1/qr-payment/status/{transactionId}",
+      "merchants": "/api/v1/qr-payment/merchants"
+    },
+    "giftCards": {
+      "purchase": "/api/v1/gift-cards/purchase",
+      "send": "/api/v1/gift-cards/send",
+      "redeem": "/api/v1/gift-cards/redeem",
+      "balance": "/api/v1/gift-cards/{cardId}/balance",
+      "history": "/api/v1/gift-cards/user/{userId}"
+    },
+    "partners": {
+      "list": "/api/v1/partners",
+      "detail": "/api/v1/partners/{partnerId}",
+      "transferPoints": "/api/v1/partners/transfer-points",
+      "convertRates": "/api/v1/partners/convert-rates",
+      "linkAccount": "/api/v1/partners/link-account",
+      "unlinkAccount": "/api/v1/partners/unlink-account"
+    },
+    "auth": {
+      "login": "/api/v1/auth/login",
+      "refresh": "/api/v1/auth/refresh",
+      "logout": "/api/v1/auth/logout"
+    },
+    "users": {
+      "profile": "/api/v1/users/{userId}/profile",
+      "notifications": "/api/v1/users/{userId}/notifications",
+      "preferences": "/api/v1/users/{userId}/preferences"
+    }
+  },
+  "internal": {
+    "health": "/api/internal/health",
+    "metrics": "/api/internal/metrics"
+  },
+  "thirdParty": {
+    "sms": "/api/v1/integrations/sms/send",
+    "email": "/api/v1/integrations/email/send",
+    "push": "/api/v1/integrations/push/send"
+  },
+  "partners": {
+    "shopee": "/api/v1/partners/shopee",
+    "lazada": "/api/v1/partners/lazada",
+    "grab": "/api/v1/partners/grab",
+    "lotusmiles": "/api/v1/partners/lotusmiles",
+    "skyjoy": "/api/v1/partners/skyjoy"
+  }
+}

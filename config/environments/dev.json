@@ -1,0 +1,5 @@
+{
+  "env": "development",
+  "baseUrl": "https://api-dev.loyalty.example.com",
+  "extends": "base.json"
+}

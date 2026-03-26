@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": ["transactionId", "userId", "type", "amount", "status"],
+  "properties": {
+    "transactionId": { "type": "string", "minLength": 1 },
+    "userId": { "type": "string", "minLength": 1 },
+    "type": { "type": "string", "enum": ["earn", "redeem", "qr_payment", "transfer", "gift_card", "expired"] },
+    "amount": { "type": "integer", "minimum": 1 },
+    "status": { "type": "string", "enum": ["pending", "completed", "failed", "cancelled", "reversed"] },
+    "source": { "type": "string", "enum": ["banking", "credit_card", "partner", "promotion", "referral", "manual"] },
+    "rewardId": { "type": "string" },
+    "partnerId": { "type": "string" },
+    "merchantId": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "channel": { "type": "string", "enum": ["app", "web", "pos", "api"] },
+        "referenceId": { "type": "string" }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": "string", "format": "date-time" }
+  }
+}

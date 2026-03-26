@@ -1,0 +1,23 @@
+{
+  "name": "loyalty-automation",
+  "version": "1.0.0",
+  "description": "LynkiD Loyalty Automation Framework - API tests for points, vouchers, tiers, QR payment, gift cards, and partner integrations",
+  "main": "src/core/config/config-loader.js",
+  "scripts": {
+    "test": "node tests/run.js",
+    "test:api": "node tests/api/run.js",
+    "test:smoke": "node tests/smoke/run.js",
+    "test:functional": "node tests/api/run.js",
+    "test:integration": "node -e \"require('./tests/api/integration/earn-and-redeem.test').run()\"",
+    "test:e2e": "node -e \"require('./tests/api/e2e/full-loyalty-journey.test').run()\"",
+    "test:performance": "node tests/performance/run.js",
+    "lint": "node --check src/**/*.js tests/**/*.js",
+    "validate:config": "node -e \"require('./src/core/config/config-loader').getConfig(); console.log('Config OK')\""
+  },
+  "keywords": ["loyalty", "automation", "api", "testing", "lynkid", "vpbank"],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  }
+}

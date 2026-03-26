@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": ["voucherId", "name", "partnerId", "pointCost", "status"],
+  "properties": {
+    "voucherId": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "description": { "type": "string" },
+    "partnerId": { "type": "string" },
+    "partnerName": { "type": "string" },
+    "category": { "type": "string", "enum": ["food", "shopping", "travel", "entertainment", "beauty", "insurance", "technology", "education"] },
+    "pointCost": { "type": "integer", "minimum": 0 },
+    "originalPrice": { "type": "number", "minimum": 0 },
+    "discountPercent": { "type": "number", "minimum": 0, "maximum": 100 },
+    "status": { "type": "string", "enum": ["active", "inactive", "expired", "out_of_stock"] },
+    "quantity": { "type": "integer", "minimum": 0 },
+    "maxClaimPerUser": { "type": "integer", "minimum": 1 },
+    "validFrom": { "type": "string", "format": "date-time" },
+    "validTo": { "type": "string", "format": "date-time" },
+    "termsAndConditions": { "type": "string" },
+    "imageUrl": { "type": "string" }
+  }
+}

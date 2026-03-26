@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": ["userId", "fullName", "phone", "email", "tier"],
+  "properties": {
+    "userId": { "type": "string", "minLength": 1 },
+    "fullName": { "type": "string", "minLength": 2, "maxLength": 100 },
+    "phone": { "type": "string", "pattern": "^(\\+84|0)\\d{9,10}$" },
+    "email": { "type": "string", "format": "email" },
+    "tier": { "type": "string", "enum": ["standard", "prime", "diamond"] },
+    "pointBalance": { "type": "integer", "minimum": 0 },
+    "totalEarned": { "type": "integer", "minimum": 0 },
+    "totalRedeemed": { "type": "integer", "minimum": 0 },
+    "linkedPartners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "partnerId": { "type": "string" },
+          "partnerName": { "type": "string" },
+          "linkedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  }
+}

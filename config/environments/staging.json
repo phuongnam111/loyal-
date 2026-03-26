@@ -1,0 +1,5 @@
+{
+  "env": "staging",
+  "baseUrl": "https://api-staging.loyalty.example.com",
+  "extends": "base.json"
+}
